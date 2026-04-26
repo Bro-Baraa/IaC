@@ -1,9 +1,8 @@
-# Baraa - Azure IaaS Terraform Lab
+# Baraa - Azure IaC Terraform Lab
 
 A small Infrastructure as Code project that builds a secure Azure IaaS
 environment using Terraform and the AzureRM provider.
 
-Built as part of an Infrastructure as a Service university assignment.
 
 ## What this builds
 
