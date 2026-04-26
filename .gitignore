@@ -1,0 +1,28 @@
+# Terraform working directory
+.terraform/
+.terraform.tfstate.lock.info
+
+# State files - never commit these
+*.tfstate
+*.tfstate.*
+
+# Local values and plan output
+*.tfvars
+!terraform.tfvars.example
+*.tfplan
+
+# Crash logs
+crash.log
+crash.*.log
+
+# Keys
+*.pem
+*.key
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/

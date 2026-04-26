@@ -1,0 +1,11 @@
+# Copy this file to terraform.tfvars and fill in your own values.
+# Do NOT commit terraform.tfvars to GitHub.
+
+project_name        = "baraa-lab"
+location            = "westeurope"
+admin_username      = "azureuser"
+ssh_public_key_path = "~/.ssh/id_rsa.pub"
+
+# Get your public IP with:  curl ifconfig.me
+# Then append /32 to lock SSH down to just your machine.
+allowed_ssh_cidr = "203.0.113.10/32"
