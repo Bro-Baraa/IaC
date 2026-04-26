@@ -1,56 +1,50 @@
-# Baraa - Azure IaC Terraform Lab
-
 # Terraform Infrastructure as Code Lab
 
-This is a small Terraform lab I made to practice Infrastructure as Code (IaC) on Azure.
+This is a small project I made to practice Infrastructure as Code (IaC) using Terraform on Azure.
 
-The idea is simple: create a small network with two Linux virtual machines.
-One VM is public and used as a jumpbox. The second VM is private and runs nginx.
+The idea was to build a simple setup with two Linux virtual machines and understand how networking and security work between them.
 
-## What this builds
+## What this project does
 
-```
-                       Internet
-                          |
-                 (your IP only, port 22)
-                          |
-                          v
-        +---------- Resource Group -----------+
-        |                                     |
-        |   +----------- VNet --------------+ |
-        |   |  10.20.0.0/16                 | |
-        |   |                               | |
-        |   |  Public subnet 10.20.1.0/24   | |
-        |   |  +-------------------------+  | |
-        |   |  | jumpbox VM   (Ubuntu)   |  | |
-        |   |  | public IP attached      |  | |
-        |   |  +-----------+-------------+  | |
-        |   |              |                | |
-        |   |              | SSH only       | |
-        |   |              v                | |
-        |   |  Private subnet 10.20.2.0/24  | |
-        |   |  +-------------------------+  | |
-        |   |  | web VM       (Ubuntu)   |  | |
-        |   |  | nginx on :80, no public |  | |
-        |   |  +-------------------------+  | |
-        |   +-------------------------------+ |
-        +-------------------------------------+
-```
+It creates:
 
-
-
-## What it creates
-
-- Resource group
-- Virtual network
-- Public subnet
-- Private subnet
-- Jumpbox VM with a public IP
-- Web VM without a public IP
-- Network security groups
+- A resource group
+- A virtual network
+- One public subnet
+- One private subnet
+- A jumpbox VM with a public IP
+- A web VM without a public IP
+- Network security rules
 - Nginx installed on the private VM
 
-## Project layout
+The private VM is not exposed to the internet.  
+Access is done through the jumpbox.
+
+## Why I built this
+
+I wanted to get more comfortable with Terraform and understand how infrastructure is defined using code.
+
+At the beginning I was just creating simple resources, but I wanted something a bit more realistic, especially with networking and access control.
+
+## What I learned
+
+- How to use Terraform modules
+- How virtual networks and subnets work
+- Basic Network Security Group rules
+- How to connect to a private VM using a jumpbox
+- How to run a simple script on a VM (nginx install)
+
+## What I struggled with
+
+At first I had problems connecting to the private VM.
+
+SSH was not working and I did not understand why.
+
+After checking the setup, I realized the issue was with the NSG rules and how the subnets were configured.
+
+It took some time to figure it out, but it helped me understand the networking part better.
+
+## Project structure
 
 ```text
 .
